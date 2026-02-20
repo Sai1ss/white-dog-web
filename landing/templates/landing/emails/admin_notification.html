@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body style="margin: 0; padding: 20px; background-color: #000000; font-family: sans-serif;">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #333; background-color: #0a0a0a; max-width: 600px;">
+        <tr>
+             <td align="center" style="padding: 20px; border-bottom: 1px solid #333;">
+                <img src="{% static 'landing/img/Dog.png' %}" alt="WD Logo" width="60" style="display: block; width: 60px; height: auto;" />
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 30px 30px 10px 30px;">
+                 <h2 style="color: #dc2626; margin: 0; text-transform: uppercase; letter-spacing: 1px;">🚀 Nuevo Lead Detectado</h2>
+            </td>
+        </tr>
+        
+        <tr>
+            <td style="padding: 20px 30px;">
+                <table width="100%" style="color: #ffffff;">
+                    <tr>
+                        <td style="padding: 10px 0; color: #666; font-size: 12px; text-transform: uppercase;">Cliente:</td>
+                        <td style="font-size: 18px; font-weight: bold;">{{ lead.nombre }}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px 0; color: #666; font-size: 12px; text-transform: uppercase;">Local/Empresa:</td>
+                        <td style="font-size: 18px; font-weight: bold;">{{ lead.local }}</td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding: 15px 0; color: #666; font-size: 11px; text-transform: uppercase;">
+                            Presencia Digital:
+                        </td>
+                        <td style="padding: 15px 0;">
+                            {% if redes_url %} <a href="{{ redes_url }}" target="_blank" 
+                                style="background-color: #dc2626; color: #ffffff; padding: 8px 15px; text-decoration: none; font-weight: bold; font-size: 12px; border-radius: 2px; display: inline-block;">
+                                    Ver Perfil / Web →
+                                </a>
+                            {% else %}
+                                <span style="color: #444; font-style: italic;">No proporcionado</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding: 10px 0; color: #666; font-size: 12px; text-transform: uppercase;">Contacto:</td>
+                        <td style="font-size: 16px; color: #dc2626;">{{ lead.email }}</td>
+                    </tr>
+
+
+                </table>
+            </td>
+        </tr>
+        
+        <tr>
+            <td style="padding: 0 30px 40px 30px;">
+                <p style="color: #666; font-size: 12px; text-transform: uppercase; margin-bottom: 10px;">Mensaje del proyecto:</p>
+                <div style="background: #111; padding: 20px; border-left: 4px solid #dc2626;">
+                    <p style="margin: 0; line-height: 1.6; color: #ddd; font-style: italic; font-size: 15px;">"{{ lead.mensaje }}"</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

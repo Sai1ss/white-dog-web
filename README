@@ -1,0 +1,115 @@
+
+INSTALACIONES:
+
+PIP INSTALL DJANGO
+pip install django-imagekit
+
+
+
+RECORDAR SIEMPRE:
+-----Nuevo modelo = makemigrations + migrate.
+
+
+
+
+
+
+
+⚡ 1. Rutina de Inicio (Al sentarte a trabajar)
+
+    Cada vez que abras Visual Studio Code, siempre debes hacer esto primero:
+
+    Paso A: Activar el Entorno Virtual
+
+    Si no ves (venv) al principio de tu terminal, actívalo:
+
+    .\venv\Scripts\activate
+
+
+Paso B: Descargar los últimos cambios (Si cambiaste de PC)
+
+Si trabajaste ayer en el Notebook y hoy estás en el PC de escritorio, descarga lo nuevo antes de escribir código:
+
+git pull origin main
+
+
+Paso C: Encender el Servidor
+
+    Para ver la web en el navegador:
+
+    python manage.py runserver
+
+
+(Para detener el servidor, presiona Ctrl + C en la terminal)
+
+💾 2. Guardar y Subir Cambios (Al terminar por hoy)
+
+Cuando termines tu sesión de trabajo o completes una funcionalidad:
+
+1. Ver qué archivos modificaste (Opcional pero recomendado):
+
+    git status
+
+
+2. Preparar los archivos para subida:
+
+    git add .
+
+
+3. Guardar la versión (Commit):
+
+Cambia el mensaje entre comillas por lo que hiciste hoy.
+git commit -m "Avance: Agregada sección de contacto y estilos"
+
+
+4. Subir a la nube (GitHub):
+
+git push origin main
+
+
+🛠️ 3. Comandos de Mantenimiento Django
+
+Crear una nueva App (Módulo):
+
+python manage.py startapp nombre_de_la_app
+
+
+Si modificaste modelos (Base de datos):
+
+python manage.py makemigrations
+python manage.py migrate
+
+
+Crear un superusuario (Para entrar al admin):
+
+python manage.py createsuperuser
+
+
+🆘 4. Solución de Errores Comunes
+
+Error: "La ejecución de scripts está deshabilitada..." (PowerShell en Rojo)
+Si cambiaste de PC y Windows no te deja activar el entorno virtual, ejecuta esto una sola vez:
+
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+
+Error: "ModuleNotFoundError: No module named 'django'"
+Significa que no activaste el entorno virtual (Paso A) o no has instalado Django en este PC.
+
+Activa el entorno.
+
+Ejecuta: pip install django
+
+🚀 Resumen Rápido
+
+.\venv\Scripts\activate
+
+python manage.py runserver
+
+(Trabajas...)
+
+git add .
+
+git commit -m "mensaje"
+
+git push origin main

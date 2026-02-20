@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,6 +29,18 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+# settings.py
+# Al hostear, usa variables de entorno para no exponer tus claves
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'tomasriveroscc@gmail.com' 
+EMAIL_HOST_PASSWORD = 'upff gqje llnw vubm' # Clave de 16 dígitos generada por Google
+DEFAULT_FROM_EMAIL = 'White Dog Studios <tomasriveroscc@gmail.com>'
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'landing',
+    'imagekit',
 ]
 
 MIDDLEWARE = [
@@ -116,3 +130,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'landing/static'),
+]

@@ -1,19 +1,453 @@
 {% extends 'landing/base.html' %}
-
-{% block title %}Inicio | White Dog Agency{% endblock %}
+{% load static %}
 
 {% block content %}
-    <section class="bg-black text-white py-20">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-5xl font-bold text-red-600 mb-4">WHITE DOG</h1>
-            <p class="text-xl text-gray-300 mb-8">Marketing Gastronómico de Alto Impacto</p>
-            <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full transition duration-300">
-                Ver Servicios
-            </button>
-        </div>
-    </section>
 
-    <section class="py-10 bg-white text-black text-center">
-        <p>Si puedes leer esto, Tailwind y Django están conectados correctamente. 🚀</p>
-    </section>
+
+
+<section class="hero relative h-screen flex items-center justify-center overflow-hidden">
+    <video autoplay muted loop playsinline id="hero-video" class="absolute z-0 w-full h-full object-cover">
+        <source src="{% static 'landing/videos/marketing.mp4' %}" type="video/mp4">
+    </video>
+    <div class="absolute inset-0 bg-black/70 z-10"></div>
+    <div class="relative z-20 text-center reveal">
+        <h1 class="text-5xl md:text-8xl font-black tracking-tighter leading-none mb-6">
+            CONVIERTE ANTOJOS,<br><span class="text-brand-red">EN VENTAS</span>
+        </h1>
+        <p class="text-lg md:text-xl text-gray-300 font-medium uppercase tracking-widest">
+            Impulsamos negocios a través del <span class="text-brand-red">Marketing Digital</span>
+        </p>
+    </div>
+</section>
+
+
+<!--SECCIÓN DE RESULTADOS EN MOVIMIENTO-->
+
+<section class="growth-section py-24 border-y border-white/5 bg-black/50 reveal">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tighter">
+                RESULTADOS PARA CADA <span class="text-brand-red"> NEGOCIO</span>
+            </h2>
+            <div class="w-12 h-1 bg-brand-red mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-0 stats-divider-grid">
+            <div class="stat-node py-8 text-center md:border-r border-white/10">
+                <div class="text-5xl md:text-7xl font-black tracking-tighter flex items-center justify-center">
+                    <span class="counter" data-base="150">150</span><span class="text-brand-red text-2xl ml-1">%</span>
+                </div>
+                <p class="text-[10px] font-bold tracking-[0.2em] text-gray-500 uppercase mt-4">Incremento en Ventas</p>
+            </div>
+            <div class="stat-node py-8 text-center md:border-r border-white/10">
+                <div class="text-5xl md:text-7xl font-black tracking-tighter flex items-center justify-center">
+                    <span class="counter" data-base="85">85</span><span class="text-brand-red text-2xl ml-1">+</span>
+                </div>
+                <p class="text-[10px] font-bold tracking-[0.2em] text-gray-500 uppercase mt-4">Clientes Nuevos / Mes</p>
+            </div>
+            <div class="stat-node py-8 text-center md:border-r border-white/10">
+                <div class="text-5xl md:text-7xl font-black tracking-tighter flex items-center justify-center">
+                    <span class="counter" data-base="12">12</span><span class="text-brand-red text-2xl ml-1">K</span>
+                </div>
+                <p class="text-[10px] font-bold tracking-[0.2em] text-gray-500 uppercase mt-4">Crecimiento Social</p>
+            </div>
+            <div class="stat-node py-8 text-center">
+                <div class="text-5xl md:text-7xl font-black tracking-tighter flex items-center justify-center">
+                    <span class="counter" data-base="300">300</span><span class="text-brand-red text-2xl ml-1">%</span>
+                </div>
+                <p class="text-[10px] font-bold tracking-[0.2em] text-gray-500 uppercase mt-4">ROI Promedio Ads</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--PARALLAX-->
+<section class="parallax-pain relative h-[80vh] flex items-center justify-center overflow-hidden">
+    
+    <div class="absolute inset-0 z-0">
+        <div id="parallax-bg" 
+             class="w-full h-[120%] bg-cover bg-center transition-transform duration-100 ease-out"
+             style="background-image: url('{% static 'landing/img/Sushi.jpg' %}'); transform: translateY(-10%);">
+        </div>
+        <div class="absolute inset-0 bg-black/60 z-10"></div>
+    </div>
+
+    <div class="container mx-auto px-6 text-center relative z-20 reveal-text">
+        <h2 class="text-4xl md:text-7xl font-black tracking-tighter mb-6 text-white uppercase leading-none">
+            ¿TU COMIDA SABE MEJOR <br>
+            <span class="text-brand-red inline-block hover:scale-105 transition-transform duration-300">
+                DE LO QUE SE VE EN REDES?
+            </span>
+        </h2>
+        <div class="w-24 h-1 bg-brand-red mx-auto mb-8 animate-pulse-slow"></div>
+        <p class="text-gray-300 text-lg md:text-xl uppercase tracking-[0.3em] font-bold">
+            Si la foto no hace justicia al sabor, <span class="text-white">estás perdiendo dinero.</span>
+        </p>
+    </div>
+</section>
+
+<!--SERVICIOS-->
+
+<section id="servicios" class="py-32 bg-brand-dark relative overflow-hidden reveal">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-brand-red/5 rounded-full blur-3xl -mr-48 -mt-48"></div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="text-center mb-20">
+            <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4">
+                LA <span class="text-brand-red">SOLUCIÓN</span> 360°
+            </h2>
+            <p class="text-gray-400 text-sm md:text-base font-bold uppercase tracking-[0.3em]">
+                Verse bien para vender más
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <div class="group p-10 bg-brand-gray/20 border border-white/5 hover:border-brand-red/50 transition-all duration-500 rounded-2xl relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-1 h-full bg-brand-red scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top"></div>
+                
+                <div class="mb-8 p-4 bg-brand-red/10 w-fit rounded-lg text-brand-red group-hover:bg-brand-red group-hover:text-white transition-colors">
+                    <i data-lucide="video" class="w-8 h-8"></i>
+                </div>
+                
+                <h3 class="text-2xl font-black uppercase tracking-tighter mb-4 leading-none">
+                    Producción <br> Audiovisual <span class="text-brand-red">Pro</span>
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    Fotos gastronómicas de catálogo y videos para Reels/TikTok con herramientas de edición profesionales. Aplicamos distintas estrategias porque entendemos que, en gastronomía, <span class="text-white italic">la comida entra por lo visual.</span>
+                </p>
+                <ul class="text-[10px] font-bold text-gray-500 uppercase tracking-widest space-y-2">
+                    <li class="flex items-center gap-2"><div class="w-1 h-1 bg-brand-red"></div> Color Grading</li>
+                    <li class="flex items-center gap-2"><div class="w-1 h-1 bg-brand-red"></div> Formato Vertical Reels</li>
+                </ul>
+            </div>
+
+            <div class="group p-10 bg-brand-gray/20 border border-white/5 hover:border-brand-red/50 transition-all duration-500 rounded-2xl relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-1 h-full bg-brand-red scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top"></div>
+                
+                <div class="mb-8 p-4 bg-brand-red/10 w-fit rounded-lg text-brand-red group-hover:bg-brand-red group-hover:text-white transition-colors">
+                    <i data-lucide="palette" class="w-8 h-8"></i>
+                </div>
+                
+                <h3 class="text-2xl font-black uppercase tracking-tighter mb-4 leading-none">
+                    Identidad & <br> Diseño <span class="text-brand-red">360°</span>
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    Validamos tu marca tanto en lo físico como en lo digital. Desde el Branding y Logo, hasta el diseño de cartas (menús), pendones y flyers. Creamos una estética coherente que genera confianza.
+                </p>
+                <ul class="text-[10px] font-bold text-gray-500 uppercase tracking-widest space-y-2">
+                    <li class="flex items-center gap-2"><div class="w-1 h-1 bg-brand-red"></div> Menús Digitales/Físicos</li>
+                    <li class="flex items-center gap-2"><div class="w-1 h-1 bg-brand-red"></div> Publicidad Exterior</li>
+                </ul>
+            </div>
+
+            <div class="group p-10 bg-brand-gray/20 border border-white/5 hover:border-brand-red/50 transition-all duration-500 rounded-2xl relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-1 h-full bg-brand-red scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top"></div>
+                
+                <div class="mb-8 p-4 bg-brand-red/10 w-fit rounded-lg text-brand-red group-hover:bg-brand-red group-hover:text-white transition-colors">
+                    <i data-lucide="trending-up" class="w-8 h-8"></i>
+                </div>
+                
+                <h3 class="text-2xl font-black uppercase tracking-tighter mb-4 leading-none">
+                    Tráfico & <br> Ventas <span class="text-brand-red">(ROI)</span>
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    No es gasto, es inversión. Ejecutamos campañas en Meta Ads segmentadas para reventar el delivery o asegurar reservas. Creamos el embudo perfecto para convertir seguidores en clientes frecuentes.
+                </p>
+                <ul class="text-[10px] font-bold text-gray-500 uppercase tracking-widest space-y-2">
+                    <li class="flex items-center gap-2"><div class="w-1 h-1 bg-brand-red"></div> Meta Ads Segmentado</li>
+                    <li class="flex items-center gap-2"><div class="w-1 h-1 bg-brand-red"></div> Retorno de Inversión</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!--reels-->
+<section id="reels" class="py-24 bg-brand-dark reveal">
+    <div class="container mx-auto px-6">
+        <div class="flex flex-col lg:flex-row gap-16 items-center">
+            
+            <div class="lg:w-1/3 text-left">
+                <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6 leading-none">
+                    CONTENIDO <br><span class="text-brand-red">QUE GENERA</span> <br>IMPACTO.
+                </h2>
+                <div class="w-16 h-1 bg-brand-red mb-8"></div>
+                <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                    En <span class="text-white font-bold">White Dog Studios</span> no solo grabamos; creamos piezas cinemáticas diseñadas para el algoritmo. Nuestros Reels combinan Color Grading de nivel cinematográfico con ritmos que retienen la atención desde el segundo cero.
+                </p>
+                <a href="#contacto" class="inline-block px-8 py-4 border-2 border-brand-red text-brand-red font-black uppercase tracking-widest hover:bg-brand-red hover:text-white transition-all">
+                    Quiero este contenido
+                </a>
+            </div>
+
+            <div class="lg:w-2/3 grid grid-cols-2 gap-4">
+                {% for i in "1234"|make_list %}
+                <div class="relative group aspect-[9/16] bg-brand-gray rounded-2xl overflow-hidden border border-white/5">
+                    <video 
+                        id="video-reel-{{ forloop.counter }}"
+                        class="reel-video w-full h-full object-cover"
+                        autoplay muted loop playsinline preload="metadata"
+                        poster="{% static 'landing/img/poster-reel-' %}{{ forloop.counter }}.jpg">
+                        <source src="{% static 'landing/videos/Reels/Reel' %}{{ forloop.counter }}.mp4" type="video/mp4">
+                    </video>
+
+                    <button 
+                        onclick="toggleSound('video-reel-{{ forloop.counter }}', this)"
+                        class="absolute bottom-4 right-4 z-30 p-3 bg-black/50 backdrop-blur-md rounded-full text-white hover:bg-brand-red transition-all">
+                        <i data-lucide="volume-x" class="w-5 h-5 sound-icon"></i>
+                    </button>
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!--SECCIÓN PORTAFOLIO FOTOGRAFICO-->
+<section id="fotografia" class="py-24 bg-black reveal">
+    <div class="container mx-auto px-6">
+        
+        <div class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div class="reveal-text">
+                <h2 class="text-5xl md:text-7xl font-black tracking-tighter leading-none uppercase text-white">
+                    CAPTURANDO <br><span class="text-brand-red">LA ESENCIA</span>
+                </h2>
+                <p class="text-gray-500 font-bold uppercase tracking-[0.4em] mt-4 text-xs">
+                    Fotografía Gastronómica & Producto
+                </p>
+            </div>
+            <div class="hidden md:block w-32 h-px bg-white/20 mb-4"></div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-0">
+            {% for i in "12345678"|make_list %}
+            <div class="relative group overflow-hidden cursor-pointer reveal" 
+                onclick="openLightbox('{% static 'landing/img/f/f' %}{{ forloop.counter }}.png')">
+                
+                <img src="{% static 'landing/img/f/f' %}{{ forloop.counter }}.png" 
+                    alt="Proyecto White Dog {{ forloop.counter }}"
+                    loading="lazy"
+                    class="w-full aspect-[4/5] object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                
+                <div class="absolute inset-0 bg-brand-red/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <i data-lucide="maximize-2" class="text-white w-8 h-8 transform scale-50 group-hover:scale-100 transition-transform duration-300"></i>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!--SECCIÓN DISEÑO-->
+
+<section id="diseno" class="py-32 bg-brand-dark overflow-hidden">
+    <div class="container mx-auto px-6">
+        
+        <div class="mb-20 reveal-text">
+            <h2 class="text-6xl md:text-9xl font-black tracking-tighter leading-none uppercase text-transparent stroke-white" 
+                style="-webkit-text-stroke: 1px rgba(255,255,255,0.3);">
+                GRAPHIC <br>
+                <span class="text-white">IDENTITY</span>
+            </h2>
+            <p class="text-brand-red font-bold uppercase tracking-[0.5em] mt-4 text-sm">Concepto / Branding / Digital</p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-0 bento-design-grid border border-white/10">
+            {% for i in "123456789"|make_list %}
+            <div class="graphic-item relative group overflow-hidden reveal
+                {% if forloop.counter == 1 %} md:col-span-2 md:row-span-2 {% endif %}"
+                onclick="openLightbox('{% static 'landing/img/d' %}{{ forloop.counter }}.png')">
+                
+                <div class="w-full h-full bg-zinc-900" style="aspect-ratio: 1350 / 1080;">
+                    <img src="{% static 'landing/img/d' %}{{ forloop.counter }}.png" 
+                        alt="Identity {{ forloop.counter }}"
+                        loading="lazy"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+                
+                <div class="absolute inset-0 bg-brand-red mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+<!--EL SOCIO QUE SI ESCUCHA-->
+
+<section id="metodo" class="py-32 bg-transparent relative z-10">
+    <div class="container mx-auto px-6">
+        
+        <div class="mb-24 reveal-text">
+            <h2 class="text-6xl md:text-8xl font-black tracking-tighter uppercase leading-none">
+                EL SOCIO QUE <br>
+                <span class="text-brand-red">SÍ ESCUCHA.</span>
+            </h2>
+            <div class="flex items-center gap-4 mt-6">
+                <div class="w-12 h-px bg-brand-red"></div>
+                <p class="text-gray-400 font-bold uppercase tracking-[0.3em] text-[10px]">Acompañamiento Estratégico</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-0 relative">
+            
+            <div class="hidden md:block absolute top-10 left-0 w-full h-px bg-white/5 z-0"></div>
+
+            <div class="group relative z-10 md:pr-12 md:border-r border-white/5 reveal" style="transition-delay: 0.1s;">
+                <div class="mb-8 w-16 h-16 bg-zinc-900 border border-white/10 flex items-center justify-center group-hover:border-brand-red transition-colors duration-500">
+                    <i data-lucide="message-square" class="text-white group-hover:text-brand-red w-6 h-6 transition-colors"></i>
+                </div>
+                <h3 class="text-xl font-black uppercase tracking-tight mb-4">WhatsApp <br>Directo</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                    Comunicación fluida para resolver dudas al instante. Olvida los tickets; estamos a un mensaje de distancia.
+                </p>
+                <span class="absolute -top-4 -left-4 text-white/5 font-black text-6xl italic group-hover:text-brand-red/10 transition-colors">01</span>
+            </div>
+
+            <div class="group relative z-10 md:px-12 md:border-r border-white/5 reveal" style="transition-delay: 0.2s;">
+                <div class="mb-8 w-16 h-16 bg-zinc-900 border border-white/10 flex items-center justify-center group-hover:border-brand-red transition-colors duration-500">
+                    <i data-lucide="shield-check" class="text-white group-hover:text-brand-red w-6 h-6 transition-colors"></i>
+                </div>
+                <h3 class="text-xl font-black uppercase tracking-tight mb-4">Aprobación <br>Mensual</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                    Tú tienes el control total. Revisamos y aprobamos cada pieza de contenido antes de que el mundo la vea.
+                </p>
+                <span class="absolute -top-4 -left-4 text-white/5 font-black text-6xl italic group-hover:text-brand-red/10 transition-colors">02</span>
+            </div>
+
+            <div class="group relative z-10 md:pl-12 reveal" style="transition-delay: 0.3s;">
+                <div class="mb-8 w-16 h-16 bg-zinc-900 border border-white/10 flex items-center justify-center group-hover:border-brand-red transition-colors duration-500">
+                    <i data-lucide="utensils" class="text-white group-hover:text-brand-red w-6 h-6 transition-colors"></i>
+                </div>
+                <h3 class="text-xl font-black uppercase tracking-tight mb-4">Entendemos <br>tu Cocina</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                    Hablamos el idioma de la gastronomía. Respetamos tus tiempos, tus procesos y la esencia de tu local.
+                </p>
+                <span class="absolute -top-4 -left-4 text-white/5 font-black text-6xl italic group-hover:text-brand-red/10 transition-colors">03</span>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+</section>
+<!--FORM DE CONTACTO-->
+<section id="contacto" class="py-32 relative z-10 reveal">
+    <div class="container mx-auto px-6">
+        
+        <div class="mb-20 reveal-text">
+            <h2 class="text-5xl md:text-7xl font-black tracking-tighter uppercase text-white leading-none">
+                HABLEMOS DE <br><span class="text-brand-red">TU PROYECTO</span>
+            </h2>
+        </div>
+
+        <form method="POST" action="{% url 'contacto' %}" class="max-w-4xl mx-auto" id="premium-form">
+            {% csrf_token %}
+            <input type="text" name="website_url" style="display:none !important" tabindex="-1" autocomplete="off">
+
+            <div class="space-y-16">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="input-group relative">
+                        <input type="text" name="nombre" id="nombre" required autocomplete="off"
+                               class="peer w-full bg-transparent border-b border-white/20 py-4 text-white text-lg font-medium focus:border-brand-red focus:outline-none transition-colors duration-300 pt-6">
+                        <label for="nombre" 
+                               class="absolute left-0 top-4 text-gray-500 text-xs font-bold uppercase tracking-[0.2em] transition-all duration-300 peer-focus:-top-2 peer-focus:text-brand-red pointer-events-none peer-valid:-top-2">
+                            Tu Nombre Completo
+                        </label>
+                        <div class="absolute bottom-0 left-0 w-0 h-px bg-brand-red transition-all duration-500 peer-focus:w-full"></div>
+                    </div>
+
+                    <div class="input-group relative">
+                        <input type="text" name="local" id="local" required autocomplete="off"
+                               class="peer w-full bg-transparent border-b border-white/20 py-4 text-white text-lg font-medium focus:border-brand-red focus:outline-none transition-colors duration-300 pt-6">
+                        <label for="local" 
+                               class="absolute left-0 top-4 text-gray-500 text-xs font-bold uppercase tracking-[0.2em] transition-all duration-300 peer-focus:-top-2 peer-focus:text-brand-red pointer-events-none peer-valid:-top-2">
+                            Nombre del Local / Empresa
+                        </label>
+                        <div class="absolute bottom-0 left-0 w-0 h-px bg-brand-red transition-all duration-500 peer-focus:w-full"></div>
+                    </div>
+                </div>
+
+
+
+            <div class="wd-form-group">
+                <div class="wd-radio-group">
+                        <label class="wd-radio-label">
+                            <input type="radio" name="tipo_enlace" value="instagram" id="radio_ig" checked> 
+                            <span class="wd-radio-btn">Instagram</span>
+                        </label>
+                    <label class="wd-radio-label">
+                        <input type="radio" name="tipo_enlace" value="link" id="radio_link"> 
+                        <span class="wd-radio-btn">Enlace Web</span>
+                    </label>
+                </div>
+
+                <div class="wd-input-group">
+                    <span id="prefijo_visual" class="wd-input-prefix">@</span>
+                    <input type="text" name="redes" id="campo_usuario" class="wd-input-field" placeholder="usuario_restaurante">
+                </div>
+            </div>               
+
+
+
+                <div class="grid grid-cols-1 gap-12">
+                     <div class="input-group relative">
+                         <input type="email" name="email" id="email" required autocomplete="off"
+                                class="peer w-full bg-transparent border-b border-white/20 py-4 text-white text-lg font-medium focus:border-brand-red focus:outline-none transition-colors duration-300 pt-6">
+                         <label for="email" 
+                                class="absolute left-0 top-4 text-gray-500 text-xs font-bold uppercase tracking-[0.2em] transition-all duration-300 peer-focus:-top-2 peer-focus:text-brand-red pointer-events-none peer-valid:-top-2">
+                             Correo Electrónico
+                         </label>
+                        <div class="absolute bottom-0 left-0 w-0 h-px bg-brand-red transition-all duration-500 peer-focus:w-full"></div>
+                     </div>
+
+                    <div class="input-group relative">
+                        <textarea name="mensaje" id="mensaje" required rows="4"
+                                  class="peer w-full bg-transparent border-b border-white/20 py-4 text-white text-lg font-medium focus:border-brand-red focus:outline-none transition-colors duration-300 pt-8 resize-none"></textarea>
+                        <label for="mensaje" 
+                               class="absolute left-0 top-6 text-gray-500 text-xs font-bold uppercase tracking-[0.2em] transition-all duration-300 peer-focus:-top-0 peer-focus:text-brand-red pointer-events-none peer-valid:-top-0">
+                            Cuéntanos tu desafío...
+                        </label>
+                        <div class="absolute bottom-2 left-0 w-0 h-px bg-brand-red transition-all duration-500 peer-focus:w-full"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-20 flex justify-start">
+                <button type="submit" id="btn-submit" class="group relative overflow-hidden bg-white/5 border border-white/10 px-10 py-5 flex items-center justify-center gap-6 hover:border-brand-red transition-all duration-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                    <div class="absolute inset-0 bg-brand-red translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-0" id="btn-bg"></div>
+                    
+                    <div id="btn-content" class="relative z-10 flex items-center gap-6 transition-all duration-300">
+                        <span class="text-white font-black uppercase tracking-[0.3em] text-xs group-hover:text-white transition-colors">
+                            Iniciar Conversación
+                        </span>
+                        <i data-lucide="arrow-right" class="text-brand-red w-5 h-5 group-hover:text-white group-hover:translate-x-2 transition-all duration-300"></i>
+                    </div>
+
+                    <div id="btn-loading" class="absolute z-20 inset-0 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300">
+                        <svg class="animate-spin h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </div>
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<script src="{% static 'landing/js/main.js' %}"></script>
 {% endblock %}

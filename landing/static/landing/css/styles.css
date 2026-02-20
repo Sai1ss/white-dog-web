@@ -1,0 +1,449 @@
+:root {
+    --f-red: #FF0000; /* Rojo Fórmula */
+    --black: #000000;
+    --white: #FFFFFF;
+    --gray: #1a1a1a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    background-color: var(--black); 
+    color: var(--white); 
+    font-family: 'Inter', sans-serif; 
+    overflow-x: hidden;
+}
+
+/* --- Animaciones de Construcción --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- 1. HERO --- */
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+#hero-video {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+.hero-overlay {
+    background: rgba(0,0,0,0.7);
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column; justify-content: center;
+}
+.hero h1 { font-size: clamp(3rem, 8vw, 6rem); font-weight: 900; line-height: 0.9; }
+.red-text { color: var(--f-red); }
+
+
+
+/* --- Sección de Contadores --- */
+/* --- [A] CABECERA DE SECCIÓN --- */
+
+.counter {
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    min-width: 1.2ch; /* Evita que los números "salten" al cambiar de ancho */
+}
+
+/* Efecto cuando el número está "vivo" */
+.stat-node:hover .counter {
+    color: #dc2626; /* Rojo White Dog al pasar el mouse */
+    transform: scale(1.05);
+}
+
+
+.dynamic-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+}
+
+.title-underline {
+    width: 60px;
+    height: 4px;
+    background: var(--f-red);
+    margin: 0 auto 50px;
+}
+
+/* --- [B] GRID MINIMALISTA CON SEPARADORES --- */
+.growth-grid-minimal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 60px 0;
+}
+
+.stat-item {
+    flex: 1;
+    text-align: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria fina */
+}
+
+.stat-item:last-child {
+    border-right: none; /* Elimina la última línea */
+}
+
+/* --- [C] TIPOGRAFÍA DE NÚMEROS --- */
+.stat-value {
+    font-size: 4.5rem;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 15px;
+    font-variant-numeric: tabular-nums; /* Evita que los números "salten" al cambiar */
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+    .growth-grid-minimal { flex-direction: column; gap: 40px; }
+    .stat-item { border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.1); width: 100%; padding-bottom: 20px; }
+    .stat-item:last-child { border-bottom: none; }
+}
+
+/* --- 3. DOLOR (PARALLAX) --- */
+.parallax-pain {
+    height: 60vh;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('/static/landing/img/kitchen-bg.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+}
+
+/* --- 5, 6, 7. MASONRY GRID --- */
+.masonry {
+    column-count: 3;
+    column-gap: 15px;
+    padding: 20px;
+}
+.masonry-item {
+    break-inside: avoid;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #333;
+}
+.masonry-item img, .masonry-item video { width: 100%; display: block; transition: 0.4s; }
+.masonry-item:hover img { transform: scale(1.05); }
+
+/* --- 8. DIFERENCIACIÓN --- */
+.diff-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px; margin-top: 50px;
+}
+.diff-card {
+    padding: 40px; border-left: 4px solid var(--f-red);
+    background: #0d0d0d;
+}
+
+/* --- FORMULARIO --- */
+.contact-form input, .contact-form textarea {
+    width: 100%; background: transparent; border: none;
+    border-bottom: 2px solid var(--white);
+    color: white; padding: 15px 0; margin-bottom: 30px;
+}
+.contact-form input:focus { border-color: var(--f-red); outline: none; }
+.btn-red {
+    background: var(--f-red); color: white; padding: 20px 40px;
+    border: none; font-weight: bold; cursor: pointer; text-transform: uppercase;
+}
+
+
+/*PARALLAXX*/
+
+/* Animación de texto revelado con blur */
+.reveal-text {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(5px);
+    transition: all 1s ease-out;
+}
+
+.reveal-text.active {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+/* Efecto de grano de película opcional para texturizar la imagen */
+.parallax-pain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,..."); /* Tu ruido de fondo actual */
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/*GALERIA FOTOGRAFICA-------------------------------*/
+
+/* Animación de entrada para las fotos */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+/* Mejora del Modal */
+#lightbox-img {
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.stat-node, .stat-item, .stat-number, .counter, .stat-label, .minimal-header, .white-text, .red-detail, .line-accent, .stats-divider-grid, .dynamic-title, .title-underline, .growth-grid-minimal {
+    /* Optimiza la renderización de los elementos de texto y contadores */
+    content-visibility: auto;
+    contain-intrinsic-size: 100px;
+}
+
+.stat-node img {
+    /* Avisa al navegador que esta imagen va a cambiar de escala, para que use la GPU */
+    will-change: transform;
+    /* Evita que el navegador repinte toda la página cuando la imagen aparece */
+    content-visibility: auto;
+}
+
+
+
+
+
+
+/*SECCION DISEÑOP -------------*/
+
+/* Título con contorno */
+.stroke-white {
+    -webkit-text-stroke: 1px rgba(white);
+}
+
+/* Animación de entrada: Deslizar hacia arriba con retraso escalonado */
+.reveal-slide-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-slide-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Composición de la cuadrícula: Hacemos que algunas tarjetas ocupen más espacio */
+@media (min-width: 768px) {
+    .graphic-grid .graphic-item:nth-child(1),
+    .graphic-grid .graphic-item:nth-child(4) {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+}
+
+.graphic-item {
+    background: #111;
+    aspect-ratio: 4/5;
+}
+
+/*EL SOCIO QUE SI ESCUCHA -------------------*/
+
+/* Estilos para la sección de confianza */
+#metodo .group {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* Efecto de resplandor sutil al pasar el mouse por los items */
+#metodo .group::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #dc2626; /* brand-red */
+    transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#metodo .group:hover::after {
+    width: 100%;
+}
+
+/* Tipografía stroke para números de fondo */
+.italic {
+    font-style: italic;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.05);
+}
+
+
+@keyframes pulse-red {
+    0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(220, 38, 38, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+}
+
+button:hover i[data-lucide="play"] {
+    animation: pulse-red 2s infinite;
+}
+
+
+/*form*/
+
+
+/* Truco para etiquetas flotantes:
+   Si el input tiene texto (valid), la etiqueta se queda arriba.
+   La clase .has-content se añade con JS para mayor seguridad.
+*/
+.input-group input:focus ~ label,
+.input-group input:valid ~ label,
+.input-group textarea:focus ~ label,
+.input-group textarea:valid ~ label,
+.input-group input.has-content ~ label,
+.input-group textarea.has-content ~ label {
+    top: -0.5rem !important;
+    font-size: 0.65rem;
+    color: #dc2626; /* brand-red */
+    letter-spacing: 0.1em;
+}
+
+/* Ajuste específico para el textarea */
+.input-group textarea:focus ~ label,
+.input-group textarea:valid ~ label,
+.input-group textarea.has-content ~ label {
+     top: 0rem !important;
+}
+
+/* Eliminar el autofill azul feo de Chrome */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+
+/*botones culiaos del form*/
+
+/* --- Contenedor general --- */
+.wd-form-group {
+  font-family: 'Montserrat', sans-serif; /* Cambia a la fuente de tu Landing */
+  max-width: 400px;
+  width: 100%;
+}
+
+/* --- Estilos para los selectores (Radio Buttons) --- */
+/* Ocultamos el circulito feo por defecto del navegador */
+.wd-radio-label input[type="radio"] {
+  display: none; 
+}
+
+.wd-radio-group {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+/* Aspecto del botón inactivo */
+.wd-radio-btn {
+  display: inline-block;
+  padding: 8px 18px;
+  background-color: #2a2a2a; /* Fondo oscuro elegante */
+  color: #a3a3a3;
+  border-radius: 30px; /* Bordes bien redondeados */
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #3f3f3f;
+}
+
+.wd-radio-btn:hover {
+  background-color: #3a3a3a;
+  color: #ffffff;
+}
+
+/* Aspecto del botón ACTIVO (El toque de tu marca) */
+.wd-radio-label input[type="radio"]:checked + .wd-radio-btn {
+  background-color: #e60000; /* Rojo impactante */
+  color: #ffffff;
+  border-color: #e60000;
+  box-shadow: 0 4px 12px rgba(230, 0, 0, 0.3); /* Sombra para darle volumen */
+}
+
+/* --- Estilos para el campo de texto --- */
+.wd-input-group {
+  display: flex;
+  align-items: stretch;
+  border-radius: 8px;
+  overflow: hidden; /* Para que el borde contenga al fondo gris del @ */
+  border: 1px solid #3f3f3f;
+  background-color: #ffffff; /* Fondo blanco para el texto, máximo contraste */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Brillo rojo cuando el usuario hace clic para escribir */
+.wd-input-group:focus-within {
+  border-color: #e60000;
+  box-shadow: 0 0 0 3px rgba(230, 0, 0, 0.15);
+}
+
+/* El cuadro del @ */
+.wd-input-prefix {
+  background-color: #f3f4f6;
+  color: #4b5563;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 700;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* El input donde se escribe */
+.wd-input-field {
+  width: 100%;
+  padding: 12px 16px;
+  border: none; /* Quitamos el borde nativo */
+  outline: none; /* Quitamos la línea de focus nativa */
+  font-size: 15px;
+  color: #111827;
+  background-color: transparent;
+}
+
+.wd-input-field::placeholder {
+  color: #9ca3af;
+}
