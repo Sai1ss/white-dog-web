@@ -17,4 +17,5 @@ RUN pip install --no-cache-dir --upgrade pip && pip install --no-cache-dir -r re
 COPY . /app/
 
 # Comando de arranque
-CMD python manage.py collectstatic --noinput && gunicorn core.wsgi:application --bind 0.0.0.0:$PORT
+# Cambia la última línea por esta para asegurar que la base de datos se cree
+CMD python manage.py migrate --noinput && python manage.py collectstatic --noinput && gunicorn core.wsgi:application --bind 0.0.0.0:$PORT
