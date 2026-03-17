@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-*9q7wwm4bu0b+30)$$6+d3yh47al2*z9_+z7f_drmj^^txe^0(
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['white-dog-web-production.up.railway.app', 'localhost', '127.0.0.1', '*']]
+ALLOWED_HOSTS = ['white-dog-web-production.up.railway.app', 'localhost', '127.0.0.1', '*']
 
 
 # settings.py
