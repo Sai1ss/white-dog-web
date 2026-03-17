@@ -237,3 +237,27 @@ document.addEventListener('DOMContentLoaded', function() {
     radio.addEventListener('change', actualizarCampo);
   });
 });
+
+
+//PLANES
+
+/* (Asegúrate de tener este script en tu main.js o al final del body) */
+document.addEventListener('DOMContentLoaded', () => {
+    lucide.createIcons(); // Importante para los nuevos iconos
+
+    const planButtons = document.querySelectorAll('.btn-select-plan');
+    const planInput = document.getElementById('plan_seleccionado');
+    const planContainer = document.getElementById('field-plan-container');
+    const contactSection = document.getElementById('contacto');
+
+    planButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const plan = button.getAttribute('data-plan');
+            if (planContainer && planInput && contactSection) {
+                planContainer.style.display = 'block';
+                planInput.value = plan;
+                contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+});

@@ -447,3 +447,130 @@ textarea:-webkit-autofill:focus {
 .wd-input-field::placeholder {
   color: #9ca3af;
 }
+
+/*SECCION DE PLANES*/
+
+/* VARIABLES DE DISEÑO WHITE DOG */
+:root {
+    --wd-red: #dc2626;
+    --wd-dark: #050505;
+    --wd-card-bg: #0c0c0c;
+    --wd-white: #ffffff;
+    --wd-gray: #666666;
+    --wd-border: rgba(255, 255, 255, 0.08);
+}
+
+.wd-planes-section {
+    background: var(--wd-dark);
+    padding: 120px 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.wd-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.wd-header { text-align: center; margin-bottom: 100px; }
+.wd-main-title { font-size: 64px; font-weight: 900; color: var(--wd-white); letter-spacing: -2px; line-height: 1; }
+.wd-accent { color: var(--wd-red); }
+.wd-tagline { font-size: 10px; font-weight: 800; color: var(--wd-gray); letter-spacing: 0.5em; margin-top: 20px; text-transform: uppercase; }
+
+/* GRID DE ALTA PRECISIÓN */
+.wd-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    align-items: stretch;
+}
+
+/* TARJETAS DE IMPACTO */
+.wd-card {
+    background: var(--wd-card-bg);
+    border: 1px solid var(--wd-border);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.wd-card:hover { border-color: rgba(220, 38, 36, 0.3); transform: translateY(-5px); }
+
+.wd-card-inner { padding: 50px; flex-grow: 1; display: flex; flex-direction: column; }
+
+.wd-label { font-size: 8px; font-weight: 900; letter-spacing: 0.4em; text-transform: uppercase; margin-bottom: 10px; display: block; }
+.wd-plan-title { font-size: 28px; font-weight: 900; color: var(--wd-white); text-transform: uppercase; line-height: 1.1; margin-bottom: 40px; }
+
+/* LISTA DE SERVICIOS */
+.wd-list { list-style: none; margin-bottom: 40px; flex-grow: 1; }
+.wd-list li {
+    font-size: 11px;
+    color: var(--wd-gray);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    line-height: 1.4;
+}
+
+.wd-list li i { color: var(--wd-red); width: 14px; height: 14px; flex-shrink: 0; margin-top: 1px; }
+
+/* RESALTADOS */
+.wd-bold { color: var(--wd-white) !important; font-weight: 900 !important; }
+.wd-highlight { color: var(--wd-red) !important; font-weight: 900 !important; }
+
+/* BADGE Y REDES */
+.wd-badge {
+    position: absolute;
+    top: 0; left: 50%; transform: translate(-50%, -50%);
+    background: var(--wd-red); color: white;
+    font-size: 9px; font-weight: 900; padding: 8px 24px;
+    letter-spacing: 0.3em; border-radius: 2px;
+}
+
+.wd-networks { display: flex; gap: 15px; margin-bottom: 40px; }
+.wd-networks i { color: white; opacity: 0.3; width: 18px; height: 18px; transition: opacity 0.3s; }
+.wd-card:hover .wd-networks i { opacity: 1; }
+
+/* BOTONES WD */
+.wd-btn {
+    width: 100%;
+    padding: 20px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    font-size: 10px; font-weight: 900; text-transform: uppercase;
+    letter-spacing: 0.3em; cursor: pointer; transition: all 0.4s;
+}
+
+.wd-btn:hover { background: white; color: black; border-color: white; }
+.wd-btn-fill { background: var(--wd-red); border-color: var(--wd-red); }
+.wd-btn-fill:hover { background: white; color: black; }
+
+/* ANIMACIONES */
+.wd-breathe { animation: wd-pulse 8s infinite ease-in-out; }
+@keyframes wd-pulse {
+    0%, 100% { border-color: var(--wd-border); }
+    50% { border-color: rgba(220, 38, 36, 0.2); }
+}
+
+.wd-shimmer-sweep::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.05), transparent);
+    animation: wd-shimmer 6s infinite;
+}
+
+@keyframes wd-shimmer {
+    0% { left: -100%; }
+    20% { left: 100%; }
+    100% { left: 100%; }
+}
+
+.wd-footer { text-align: center; margin-top: 80px; border-top: 1px solid var(--wd-border); padding-top: 40px; }
+.wd-footer p { color: var(--wd-gray); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 10px; }
