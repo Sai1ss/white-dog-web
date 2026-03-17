@@ -9,5 +9,5 @@ urlpatterns = [
     path('', include('landing.urls')), 
 ]
 
-
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG or True: # Forzamos para la prueba
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
