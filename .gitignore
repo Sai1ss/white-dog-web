@@ -13,3 +13,4 @@ db.sqlite3
 # Variables de entorno (contraseñas, secret keys)
 .env
 
+git remote add origin https://github.com/Sai1ss/white-dog-web.git
