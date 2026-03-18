@@ -7,19 +7,13 @@
 
 <section class="hero relative h-screen flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0 z-0 pointer-events-none">
-        <iframe 
-            src="https://www.youtube.com/embed/LYkUMFcL77c?autoplay=1&mute=1&loop=1&playlist=LYkUMFcL77c&controls=0&rel=0&showinfo=0&iv_load_policy=3" 
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[115%] h-[115%] min-w-full min-h-full object-cover"
-            frameborder="0" 
-            allow="autoplay; fullscreen" 
-            allowfullscreen>
-        </iframe>
+        <div id="player" class="w-full h-full scale-125"></div>
     </div>
 
     <div class="absolute inset-0 bg-black/70 z-10"></div>
 
     <div class="relative z-20 text-center">
-        <h1 class="text-5xl md:text-8xl font-black tracking-tighter leading-none mb-6 uppercase">
+        <h1 class="text-5xl md:text-8xl font-black tracking-tighter leading-none mb-6">
             CONVIERTE ANTOJOS,<br><span class="text-brand-red">EN VENTAS</span>
         </h1>
         <p class="text-lg md:text-xl text-gray-300 font-medium uppercase tracking-widest">
@@ -27,6 +21,31 @@
         </p>
     </div>
 </section>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+    var player;
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+            videoId: 'LYkUMFcL77c', // Tu video
+            playerVars: {
+                'autoplay': 1,
+                'mute': 1,
+                'loop': 1,
+                'playlist': 'LYkUMFcL77c',
+                'controls': 0,
+                'showinfo': 0,
+                'rel': 0,
+                'iv_load_policy': 3
+            },
+            events: {
+                'onReady': function(event) {
+                    event.target.playVideo(); // Fuerza el inicio
+                }
+            }
+        });
+    }
+</script>
 
 <!--SECCIÓN DE RESULTADOS EN MOVIMIENTO-->
 
